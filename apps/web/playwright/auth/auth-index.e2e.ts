@@ -23,10 +23,18 @@ test.describe("Can signup from a team invite", async () => {
     await page.locator('input[name="slug"]').fill(teamName);
     await page.locator('button[type="submit"]').click();
 
-    // Add new member to team
+    // Add new member to team with email
     await page.click('[data-testid="new-member-button"]');
     await page.fill('input[id="inviteUser"]', testUser.email);
     await page.click('[data-testid="invite-new-member-button"]');
+
+    // Add new member to team with username
+    await page.click('[data-testid="new-member-button"]');
+    await page.fill('input[id="inviteUser"]', testUser.username);
+    await page.click('[data-testid="invite-new-member-button"]');
+
+    
+  
 
     // TODO: Adapt to new flow
 
